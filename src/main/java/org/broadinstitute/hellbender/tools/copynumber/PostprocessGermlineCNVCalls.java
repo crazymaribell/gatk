@@ -3,10 +3,7 @@ package org.broadinstitute.hellbender.tools.copynumber;
 import htsjdk.samtools.SAMSequenceDictionary;
 import htsjdk.samtools.SAMSequenceRecord;
 import htsjdk.variant.variantcontext.writer.VariantContextWriter;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.broadinstitute.barclay.argparser.Argument;
-import org.broadinstitute.barclay.argparser.BetaFeature;
 import org.broadinstitute.barclay.argparser.CommandLineProgramProperties;
 import org.broadinstitute.barclay.help.DocumentedFeature;
 import org.broadinstitute.hellbender.cmdline.programgroups.CopyNumberProgramGroup;
@@ -97,8 +94,6 @@ import java.util.stream.IntStream;
 )
 @DocumentedFeature
 public final class PostprocessGermlineCNVCalls extends GATKTool {
-    private static final Logger logger = LogManager.getLogger(PostprocessGermlineCNVCalls.class);
-
     public static final String SEGMENT_GERMLINE_CNV_CALLS_PYTHON_SCRIPT = "segment_gcnv_calls.py";
 
     public static final String CALLS_SHARD_PATH_LONG_NAME = "calls-shard-path";

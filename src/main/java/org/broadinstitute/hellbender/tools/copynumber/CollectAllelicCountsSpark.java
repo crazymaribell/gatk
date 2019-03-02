@@ -1,7 +1,5 @@
 package org.broadinstitute.hellbender.tools.copynumber;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.api.java.function.FlatMapFunction;
@@ -34,10 +32,7 @@ import java.util.List;
         programGroup = CopyNumberProgramGroup.class
 )
 public class CollectAllelicCountsSpark extends LocusWalkerSpark {
-
     private static final long serialVersionUID = 1L;
-
-    private static final Logger logger = LogManager.getLogger(CollectAllelicCounts.class);
 
     @Argument(
             doc = "Output file for allelic counts.",

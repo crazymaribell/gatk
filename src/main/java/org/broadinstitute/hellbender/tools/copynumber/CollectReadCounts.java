@@ -6,8 +6,6 @@ import com.google.common.collect.Multiset;
 import htsjdk.samtools.SAMSequenceDictionary;
 import htsjdk.samtools.util.Locatable;
 import htsjdk.samtools.util.OverlapDetector;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.broadinstitute.barclay.argparser.Argument;
 import org.broadinstitute.barclay.argparser.CommandLineProgramProperties;
 import org.broadinstitute.barclay.help.DocumentedFeature;
@@ -34,7 +32,9 @@ import org.broadinstitute.hellbender.utils.Utils;
 import org.broadinstitute.hellbender.utils.read.GATKRead;
 
 import java.io.File;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -93,13 +93,11 @@ import java.util.stream.Collectors;
 )
 @DocumentedFeature
 public final class CollectReadCounts extends ReadWalker {
-    private static final Logger logger = LogManager.getLogger(CollectReadCounts.class);
-
-    private static final int DEFAULT_MINIMUM_MAPPING_QUALITY = 30;
-
-    enum Format {
+    public enum Format {
         TSV, HDF5
     }
+
+    private static final int DEFAULT_MINIMUM_MAPPING_QUALITY = 30;
 
     public static final String FORMAT_LONG_NAME = "format";
 

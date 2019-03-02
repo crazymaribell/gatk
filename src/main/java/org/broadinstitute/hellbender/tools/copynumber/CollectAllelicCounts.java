@@ -2,8 +2,6 @@ package org.broadinstitute.hellbender.tools.copynumber;
 
 import com.google.common.collect.ImmutableList;
 import htsjdk.samtools.SAMSequenceDictionary;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.broadinstitute.barclay.argparser.Argument;
 import org.broadinstitute.barclay.argparser.CommandLineProgramProperties;
 import org.broadinstitute.barclay.help.DocumentedFeature;
@@ -80,11 +78,7 @@ import java.util.List;
 )
 @DocumentedFeature
 public final class CollectAllelicCounts extends LocusWalker {
-    private static final Logger logger = LogManager.getLogger(CollectAllelicCounts.class);
-
-    static final String MINIMUM_BASE_QUALITY_LONG_NAME = "minimum-base-quality";
-
-    static final int DEFAULT_MINIMUM_MAPPING_QUALITY = 30;
+    private static final int DEFAULT_MINIMUM_MAPPING_QUALITY = 30;
     static final int DEFAULT_MINIMUM_BASE_QUALITY = 20;
 
     static final List<ReadFilter> DEFAULT_ADDITIONAL_READ_FILTERS = ImmutableList.of(
@@ -92,6 +86,8 @@ public final class CollectAllelicCounts extends LocusWalker {
             ReadFilterLibrary.NON_ZERO_REFERENCE_LENGTH_ALIGNMENT,
             ReadFilterLibrary.NOT_DUPLICATE,
             new MappingQualityReadFilter(DEFAULT_MINIMUM_MAPPING_QUALITY));
+
+    public static final String MINIMUM_BASE_QUALITY_LONG_NAME = "minimum-base-quality";
 
     @Argument(
             doc = "Output file for allelic counts.",
